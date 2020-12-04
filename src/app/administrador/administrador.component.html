@@ -1,0 +1,125 @@
+
+<p>
+  <mat-toolbar color="primary" id="navbar">
+
+    <a href=""><img src="../../assets/libro.png" alt="" id="logo"> </a>
+    <a href="" id="navboton"> Web de Reclamos </a>
+    <span class="example-spacer"></span>
+    <a href="" id="navboton" (click)="cerrar()" > Cerrar Sesion </a>
+  </mat-toolbar>
+</p>
+
+<body>
+
+
+
+
+  <div class="shadow-lg p-3 mb-5 bg-white rounded">
+
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Buscar por rut o numero" #input>
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="num_reclamos" id="num_reclamo">
+        <th mat-header-cell *matHeaderCellDef id="num_reclamon"> Num. Reclamo </th>
+        <td mat-cell *matCellDef="let reclamo" id="num_reclamo"> {{reclamo.num_reclamos}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="rut" id="rut">
+        <th mat-header-cell *matHeaderCellDef id="rut_nombre"> RUT </th>
+        <td mat-cell *matCellDef="let reclamo" id="rut"> {{reclamo.rut}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="fecha" id="fecha">
+        <th mat-header-cell *matHeaderCellDef id="fecha"> fecha </th>
+        <td mat-cell *matCellDef="let reclamo" id="fecha"> {{reclamo.fecha}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="categoria" id="categoria">
+        <th mat-header-cell *matHeaderCellDef id="categoria"> categoria </th>
+        <td mat-cell *matCellDef="let reclamo" id="categoria"> {{reclamo.categoria}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="reclamo">
+        <th mat-header-cell *matHeaderCellDef id="reclamo_nombre"> Reclamos </th>
+        <td mat-cell *matCellDef="let reclamo" id="tbody"> {{reclamo.reclamo}} </td>
+      </ng-container>
+      <ng-container matColumnDef="estado" id="estado">
+        <th mat-header-cell *matHeaderCellDef id="estado_nombre"> Estado </th>
+        <td mat-cell *matCellDef="let reclamo" id="estado"> {{reclamo.estado}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef > Acciones </th>
+        <td mat-cell *matCellDef="let reclamo" id="acc">
+          
+          
+          <mat-accordion>
+            <mat-expansion-panel (abierto)="panelOpenState = true"
+            (cerrado)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Panel de Botones
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <button type="button" class="btn btn-danger" (click)="borrarReclamo(reclamo.num_reclamos)">Borrar</button>
+          <button type="button" class="btn btn-secondary" (click)="cambiarEstado(reclamo.num_reclamos)" >{{reclamo.estado}}</button> 
+          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" (click)="guardarNum(reclamo.num_reclamos)"  >Ag. Antecedente</button>
+          <button type="button" class="btn btn-light" (click)="openDialogAn(reclamo.num_reclamos)">Antecedentes </button> 
+          <button type="button" class="btn btn-light" (click)="openDialogCo(reclamo.num_reclamos)">Comentarios</button>
+          
+        </mat-expansion-panel>
+      </mat-accordion>
+          
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+  </div>
+
+
+  
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Agregar un Antecedente</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <textarea class="form-control"[(ngModel)]="antecedente" aria-label="With textarea"></textarea>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" (click)="agregarAntecedente(antecedente)">Agregar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+</body>
+
+
+
+

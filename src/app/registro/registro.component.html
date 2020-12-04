@@ -1,0 +1,106 @@
+<div class="background">
+<p>
+    <mat-toolbar color="primary" id="navbar">
+      
+    <a href=""><img src="../../assets/libro.png" alt="" id="logo">  </a>
+    <a href="" id="navboton"> Web de Reclamos </a>
+    <span class="example-spacer"></span>
+    <a href="/login" id="navboton"> Ingresa</a>
+    <a href="/registro" id="navboton"> Regístrate </a>
+    <a href="" id="navboton"> Nosotros </a>
+    </mat-toolbar>
+  </p>
+
+
+
+<div class="row" style="margin-left: 0px;">
+    <div class="col-1"></div>
+    <div class="col-4">
+        <br>
+        <h2>¿Por qué registrarse?</h2>
+        <br>
+        <br>
+        <p id="texto"> Porque si lo haces, puedes dejar quejas o sugerencias para que nosotros
+            sigamos creciendo junto a ti. </p>
+        <br>
+        <br>
+    </div>
+    <div class="col-2"></div>
+    <div class="col-4">
+  <div class="card text-center " style="width: 25rem;">
+    <div class="card-header">
+        ¿Desea registrarse?
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"> Regístrese!</h5>
+      <form class="was-validated">
+        <div>
+          
+          <input id="separacion" name="RUT" type="text" placeholder="Ingrese su rut" class="form-control" minlength="8"  required [(ngModel)]="rut" >
+          <div class="valid-feedback"> ¡Completado!</div>
+
+        </div>
+      
+        <div>
+          
+          <input id="separacion" name="Nombre" type="text" class="form-control"  placeholder="Ingrese su Nombre" required [(ngModel)]="nombre">
+          <div class="valid-feedback"> ¡Completado!</div>
+        </div>
+      
+       
+      
+        <div>
+          <input id="separacion" name="Apellido" type="text" class="form-control"  placeholder="Ingrese el Apellido" required [(ngModel)]="apellido">
+          <div class="valid-feedback"> ¡Completado!</div>
+          
+        </div>
+      
+        <div>
+          <input id="separacion" name="Direccion" type="text" class="form-control"  placeholder="Ingrese su Direccion" required [(ngModel)]="direccion">
+          <div class="valid-feedback"> ¡Completado!</div>
+          
+        </div>
+      
+        <div>
+
+          <input id="separacion" name="correo" type="email" class="form-control" placeholder="Ingrese su correo electronico" required [(ngModel)]="correo" (keyup)="validarCorreo(correo)" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+          <div class="invalid-feedback" *ngIf="validacion == 1 "> el correo ya existe </div>
+          <div class="valid-feedback"> ¡Completado!</div>
+          
+        </div>
+        <div>
+
+            <input id="separacion" name="Usuario" type="text" class="form-control" placeholder="Ingrese su nombre de Usuario" required [(ngModel)]="nom_usuario" minlength="3">
+            <div class="valid-feedback"> ¡Completado!</div>
+            
+          </div>
+        <div id="separacion">
+          
+            <input id="separacion" name="Password" type="password" class="form-control" id="Password"
+              placeholder="Contraseña (minimo 4 caracteres,con almenos una letra y un numero)"
+              pattern="(?=.*\d)(?=.*[a-z]).{4,}" required [(ngModel)]="clave">
+            <div class="valid-feedback"> ¡Completado!</div>
+            <div class="invalid-feedback"> ¡Complete el campo!</div>
+        
+          </div>
+      
+      
+        <hr>
+      
+        <div>
+          <p class="text-info"> Al registrarte aceptas los términos y condiciones </p>
+        </div>
+      
+        <div>
+          <button  type="submit" class="btn btn-secondary" (click)="agregarUsuario(rut,nombre,apellido,direccion,correo,nom_usuario,clave)" *ngIf="validacion == 0" >Regístrate</button>
+        </div>
+      
+      </form>
+      
+    </div>
+    
+  </div>
+</div>
+</div>
+
+</div>

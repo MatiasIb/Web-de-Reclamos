@@ -1,0 +1,80 @@
+#navboton{
+  color: white;
+  padding-right: 30px;
+}
+
+#logo{
+  width: 65px;
+  height: 65px;
+  margin-right:20px ;
+}
+
+#navbar{
+  background-color: #2C3240 !important;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+#tbody {
+width: 600px;
+padding-right: 6px;
+}
+
+#acciones{
+width: 900px;
+padding-right: 6px;
+}
+button {
+margin-right: 6px;
+padding-left: 2px;
+padding-right: 2px;
+padding-bottom: 2px;
+padding-top: 2px;
+margin-top: 4px;
+}
+#num_reclamon{
+width: 60px;
+padding-right: 6px;
+}
+#num_reclamo{
+width: 60px;
+padding-right: 6px;
+}
+
+#rut{
+width: 100px;
+padding-right: 6px;
+}
+
+#fecha{
+width: 85px;
+padding-right: 6px;
+}
+
+#categoria{
+width: 90px;
+padding-right: 6px;
+
+}
+#estado_nombre{
+width: 80px;
+
+}
+#estado{
+width: 80px;
+}
+
+#acc{
+  padding-right: 0;
+}

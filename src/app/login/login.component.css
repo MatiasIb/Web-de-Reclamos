@@ -1,0 +1,48 @@
+#carta-login{
+    width: 450px; 
+    margin:auto; 
+    height: 240px ;
+    margin-top: 150px;
+}
+
+#background{
+    background-image: url(../../assets/water-2058341_1920.png);
+    height: 100%;
+}
+
+#icono{
+    width: 28px;
+    height: 28px;
+    background-color: white;
+}
+
+#border{
+    padding: 0;
+}
+
+#input2{
+    margin-top: 30px;
+}
+
+#pregunta{
+    margin-top: 7px;
+}
+
+#navbar{
+    background-color: #2C3240 !important;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+#navboton{
+    color: white;
+    padding-right: 30px;
+}
+
+#logo{
+    width: 65px;
+    height: 65px;
+    margin-right:20px ;
+}

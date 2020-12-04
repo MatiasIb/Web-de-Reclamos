@@ -1,0 +1,88 @@
+<p>
+  <mat-toolbar color="primary" id="navbar">
+
+      <a href=""><img src="../../assets/libro.png" alt="" id="logo"> </a>
+      <a href="" id="navboton"> Web de reclamos </a>
+      <span class="example-spacer"></span>
+      <a href="/user" id="navboton"> Inicio </a>
+      <a href="/perfil" id="navboton"> Perfil </a>
+      <a href="/reclamos" id="navboton"> Reclamos.. </a>
+      <a href="" id="navboton" (click)="cerrar()" > Cerrar sesión </a>
+  </mat-toolbar>
+</p>
+<div class="container">
+
+<form>
+
+  <div class="row justify-content-md-center ">
+    <div class="col-2"></div>
+    <div class="col-3"> <h3>Perfil</h3></div>
+    <div class="col-3"> </div>
+    <div class="col-4"></div>
+  </div>
+
+  <hr>
+  
+  <div class="form-group row justify-content-md-center "  async as usuarios > 
+    <label for="inputPassword" class="col-sm-2 col-form-label">Apellido</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control"  [(ngModel)]="usuarios.apellido" name = "apellido" >
+    </div>
+  </div>
+
+  <div class="form-group row justify-content-md-center">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Nombre</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control"   [(ngModel)]="usuarios.nombre" name = "nombre"  >
+    </div>
+  </div>
+
+  <div class="form-group row justify-content-md-center">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Usuario</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control"  [(ngModel)]="usuarios.nom_usuario" name = "usuario">
+    </div>
+  </div>
+
+  <div class="form-group row justify-content-md-center">
+    <label for="inputPassword" class="col-sm-2 col-form-label"> Dirección  </label>
+    <div class="col-sm-6">
+      <input type="direccion" class="form-control" [(ngModel)]="usuarios.direccion" name = "direccion" >
+    </div>
+  </div>
+
+  <div class="form-group row justify-content-md-center">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Correo electrónico</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control"   [(ngModel)]="usuarios.correo" name = "correo" >
+    </div>
+  </div>
+
+  <div class="form-group row justify-content-md-center">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Contraseña actual</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control"  value="{{usuarios.clave}}" >
+    </div>
+  </div>
+  <div class="form-group row justify-content-md-center">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Nueva contraseña</label>
+    <div class="col-sm-6">
+      <input type="password" class="form-control"  placeholder="Contraseña (minimo 4 caracteres,con almenos una letra y un numero)"
+      pattern="(?=.*\d)(?=.*[a-z]).{4,}" [(ngModel)]="clave" name="clave" >
+    </div>
+  </div>
+
+  
+  <div class="form-group row justify-content-md-center">
+   
+  
+   <div class="col-4"></div>
+    <div class="col-sm-6">
+      <button class="btn btn-primary btn-lg" (click)="actualizarDatos(usuarios.apellido,usuarios.nombre,usuarios.nom_usuario,usuarios.direccion,usuarios.correo,clave)" > Actualizar datos</button>
+    </div>
+  </div>
+  
+</form>
+
+ 
+</div>

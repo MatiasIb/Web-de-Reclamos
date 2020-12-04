@@ -1,0 +1,124 @@
+<p>
+  <mat-toolbar color="primary" id="navbar">
+
+      <a href=""><img src="../../assets/libro.png" alt="" id="logo"> </a>
+      <a href="" id="navboton"> Web de Reclamos </a>
+      <span class="example-spacer"></span>
+      <a href="/user" id="navboton"> Inicio </a>
+      <a href="/perfil" id="navboton"> Perfil </a>
+      <a href="/reclamos" id="navboton"> Reclamos.. </a>
+      <a href="" id="navboton" (click)="cerrar()"> Cerrar sesión </a>
+  </mat-toolbar>
+</p>
+
+<body>
+
+
+<div class="container">
+
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="num_reclamos" id="num_reclamo" >
+    <th mat-header-cell *matHeaderCellDef id="num_reclamo" > Num. reclamo</th>
+    <td mat-cell *matCellDef="let reclamo" id=" num reclamo"> {{reclamo.num_reclamos}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="rut" id="rut">
+    <th mat-header-cell *matHeaderCellDef id="rut"> RUT  </th>
+    <td mat-cell *matCellDef="let reclamo" id="rut"> {{reclamo.rut}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="fecha" id="fecha">
+    <th mat-header-cell *matHeaderCellDef id="fecha"> Fecha </th>
+    <td mat-cell *matCellDef="let reclamo"id="fecha"> {{reclamo.fecha}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="categoria" id="categoria">
+    <th mat-header-cell *matHeaderCellDef class="tablaR" id="categoria" > Categoria </th>
+    <td mat-cell *matCellDef="let reclamo" id="categoria"> {{reclamo.categoria}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="reclamo" id="reclamo">
+    <th mat-header-cell *matHeaderCellDef class="tablaR" id="reclamo"> Reclamo </th>
+    <td mat-cell *matCellDef="let reclamo" id="reclamo" > {{reclamo.reclamo}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="estado" id="estado">
+    <th mat-header-cell *matHeaderCellDef class="tablaR" id="estado"> Estado </th>
+    <td mat-cell *matCellDef="let reclamo" id="estado"> {{reclamo.estado}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="acciones" id="acciones">
+      <th mat-header-cell *matHeaderCellDef class="tablaA" id="acciones" > Acciones </th>
+      <td mat-cell *matCellDef="let reclamo" id="acciones"> 
+        <button type="button" class="btn btn-primary" (click)="obtenerNum(reclamo.num_reclamos)" data-toggle="modal" data-target="#exampleModal2">
+          Ag.Comentario
+        </button>
+        
+                <button (click)="obtenerNum(reclamo.num_reclamos)" (click)="traerComentario()"  type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal">
+                  Comentarios
+                </button>
+               
+            
+      </td>
+    </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+
+  <!-- Row shown when there is no matching data. -->
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+  </tr>
+</table>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Comentario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <textarea class="form-control" aria-label="With textarea" [(ngModel)]="comentario" value="nada"  ></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="agregarComentario(comentario)"  >Agregar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Comentario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{comentarios}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="borrarComentario()" >Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+

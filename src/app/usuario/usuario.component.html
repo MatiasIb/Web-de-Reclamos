@@ -1,0 +1,56 @@
+<p>
+    <mat-toolbar color="primary" id="navbar">
+
+        <a href=""><img src="../../assets/libro.png" alt="" id="logo"> </a>
+        <a href="" id="navboton"> Web de reclamos </a>
+        <span class="example-spacer"></span>
+        <a href="/user" id="navboton"> Inicio </a>
+        <a href="/perfil" id="navboton"> Perfil </a>
+        <a href="/reclamos" id="navboton"> Reclamos.. </a>
+        <a href="" id="navboton" (click)="cerrar()"> Cerrar sesión </a>
+    </mat-toolbar>
+</p>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-4">
+            <h2>¡Bienvenido usuario! </h2>
+            <p>Sabemos que es muy importante tu opinión y es por eso que deseamos que la compartas con nosotros a fin de seguir mejorando nuestros servicios.</p>
+            <img src="../../assets/pulgar arriba.png" alt="" id="foto">
+        </div>
+        <div class="col-3">
+        </div>
+        <div class="col-4">
+            <form>
+                <h3>Formulario de reclamos.</h3>
+                <hr>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Fecha del problema.</label>
+                    <input type="date" class="form-control" id="exampleFormControlInput1" [(ngModel)] = "fecha" name="fecha">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Categoría.</label>
+                    <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]= "categoria" name="categoria">
+                        <option>Mala Atención</option>
+                        <option>Sugerencias</option>
+                        <option>Higiene y orden</option>
+                        <option>Problemas con el pago</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Indíquenos su comentario:</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)] = "reclamo" name="reclamo"></textarea>
+                </div>
+                <br>
+                <button class="btn btn-primary btn-lg btn-block" (click)="crearReclamo(fecha,categoria,reclamo)"> Enviar </button>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+</div>

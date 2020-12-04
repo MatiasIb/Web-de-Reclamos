@@ -1,0 +1,57 @@
+<div id="background">
+    <p>
+        <mat-toolbar color="primary" id="navbar">
+          
+        <a href=""><img src="../../assets/libro.png" alt="" id="logo">  </a>
+        <a href="" id="navboton"> Web de Reclamos </a>
+        <span class="example-spacer"></span>
+        <a href="/login" id="navboton"> Ingresa</a>
+        <a href="/registro" id="navboton"> Regístrate </a>
+        <a href="" id="navboton"> Nosotros </a>
+        </mat-toolbar>
+      </p>
+
+
+ 
+  <div class="card text-center" id="carta-login">
+    <div class="card-body">
+      <h5 class="card-title">Iniciar sesión</h5>
+      <div>
+        <form>
+  <div class="form-group">
+    
+    <div class="input-group input-group">
+        <div class="input-group-prepend">
+          <span id="border" class="input-group-text"  ><img id="icono" src="../../assets/usuario.png" alt=""></span>
+        </div>
+        <input name="user" [(ngModel)]="nom_usuario" type="text" placeholder="Usuario"  class="form-control fix-rounded-right" required>
+        <div class="invalid-feedback">
+         Por favor ingresa tu usuario
+        </div>
+
+        <div id="input2" class="input-group input-group">
+            <div class="input-group-prepend">
+              <span id="border" class="input-group-text"><img id="icono" src="../../assets/bloquear.png" alt=""></span>
+            </div>
+            <input name="passw" [(ngModel)]="clave" type="password" placeholder="Contraseña"  class="form-control fix-rounded-right"  placeholder="(minimo 4 caracteres,con almenos una letra y un numero)" minlength="4"
+            pattern="(?=.\d)(?=.[a-zA-Z]).*" required>
+            <div class="invalid-feedback">
+              Por favor ingresa la contraseña
+            </div>
+          </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-md-center">
+      <div class="col-lg-4" id="pregunta"> <a href="/registro"><small>¿Quiere registrarse?</small> </a></div>
+      <div class="col-lg-3"></div>
+      <div class="col-lg-4">
+  <button type="submit" class="btn btn-primary" (click)=" validar(nom_usuario,clave)" >Entrar</button>
+</div>
+</div>
+
+</form>
+    </div>
+  </div>
+
+</div>

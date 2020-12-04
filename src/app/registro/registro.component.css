@@ -1,0 +1,49 @@
+#navboton{
+    color: white;
+    padding-right: 30px;
+}
+
+#logo{
+    width: 65px;
+    height: 65px;
+    margin-right:20px ;
+}
+
+#navbar{
+    background-color: #2C3240 !important;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+#separacion{
+    margin-top: 10px;
+}
+
+.background{
+    background-image: url(../../assets/monochrome-2484055_1280.jpg);
+    background-size: contain;
+    height: 100%;
+}
+
+h2 {
+    color:black ;
+}
+
+#texto {
+    color:black;
+    font-size: x-large;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.valid-feedback{
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+#inv{
+    font-size: small;
+    color: red;
+}

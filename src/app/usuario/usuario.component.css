@@ -1,0 +1,24 @@
+#navboton{
+    color: white;
+    padding-right: 30px;
+}
+
+#logo{
+    width: 65px;
+    height: 65px;
+    margin-right:20px ;
+}
+
+#navbar{
+    background-color: #2C3240 !important;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+#foto{
+
+    width: 350px;
+    height: 350px;
+}
